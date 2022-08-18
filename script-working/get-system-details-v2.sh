@@ -137,5 +137,7 @@ echo $var_JSON_Response
 
 # API Server URL formation and POST operation to push the data as POST payload.
 
-url="http://52.191.4.233:80/api/v1/machinedetails"
-curl -H "Accept: application/json" -H "Content-Type:application/x-www-form-urlencoded" -X POST --data-urlencode "custom=$var_JSON_Response" $url
+# url="http://52.191.4.233:80/api/v1/machinedetails"
+# curl -H "Accept: application/json" -H "Content-Type:application/x-www-form-urlencoded" -X POST --data-urlencode "custom=$var_JSON_Response" $url
+
+curl -d '$var_JSON_Response' -H "Content-Type: application/json" http://52.191.4.233:80/api/v1/machinedetails
