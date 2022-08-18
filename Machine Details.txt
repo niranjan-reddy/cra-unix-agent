@@ -1,0 +1,70 @@
+List of VMs
+
+=============================
+Mongo DB and API Server VM 
+Machine Name: mongoserver
+Config: 4 Core / 16 GB
+Public IP Address: 52.152.240.66
+User ID: mongouser
+Password: Mongo@123456
+Mongo Port - 8955
+API Port - 8888
+
+=============================
+Linux VM 1
+Machine Name: Linux-1
+OS Version: centos 7.9.2009
+Config: 1 Core / 0.5 GB
+Public IP Address: 20.25.98.91
+User ID: linuxuser
+Password: Linuxuser@123456
+
+-----------------------------
+
+Linux VM 2
+Machine Name: Linux-2
+OS Version: SUSE Linux
+Config: 1 Core / 0.5 GB
+Public IP Address: 40.71.73.13
+User ID: linuxuser
+Password: Linuxuser@123456
+
+-----------------------------
+
+Linux VM 3
+Machine Name: Linux-3
+OS Version: RedHat Linux
+Config: 1 Core / 0.5 GB
+Public IP Address: 20.115.119.136
+User ID: linuxuser
+Password: Linuxuser@123456
+
+-----------------------------
+
+Windows VM 1
+Machine Name: Windows-1
+OS Version: Windows 10 Pro
+Config: 2 Core / 8 GB
+Public IP Address: 20.120.5.7
+User ID: windowsuser
+Password: Windowsuser@123456
+
+-----------------------------
+
+Windows VM 2
+Machine Name: Windows-2
+OS Version: Windows 10 Pro
+Config: 2 Core / 8 GB
+Public IP Address: 52.255.159.76
+User ID: windowsuser
+Password: Windowsuser@123456
+
+-----------------------------
+
+Linux VM 4
+Machine Name: Linux-API-Server
+OS Version: Linux(ubuntu 20.04)
+Config: 2 Core / 4 GB
+Public IP Address: 52.191.4.233
+User ID: linuxuser
+Password: Linuxuser@123456

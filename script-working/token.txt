@@ -1,0 +1,20 @@
+git pull - pull latest code from GitHub.com repository
+git add . - adds the local code to the commit window
+git commit -m "COMMENT GOES HERE" - adds the commit with the comment to local commit window
+git push -u origin master - publishes/pushes the commit window to GitHub.com repository
+
+
+This command will ask for the following:
+1. User ID: ksantoshi
+2. Password: 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
+- This is no password but the token created for the commit. It will expire on 17-August-2022. Has to be renewed or new code generated with new validity period.
+
+          Every time the password prompt appears the KEY is to be provided.
+
+      
+
+
+
+
+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
+
