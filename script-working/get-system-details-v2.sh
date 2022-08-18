@@ -7,7 +7,7 @@ var_uptime=`uptime | awk '{print $3,$4}' | sed 's/,//'`
 var_manufacturer=`cat /sys/class/dmi/id/chassis_vendor`
 var_productName=`cat /sys/class/dmi/id/product_name`
 var_version=`cat /sys/class/dmi/id/product_version`
-var_serialNumber=`cat /sys/class/dmi/id/product_serial`
+var_serialNumber=`sudo cat /sys/class/dmi/id/product_serial`
 var_machineType=`vserver=$(lscpu | grep Hypervisor | wc -l); if [ $vserver -gt 0 ]; then echo "VM"; else echo "Physical"; fi`
 var_systemDetails=""
 var_availableRAM=""
@@ -40,10 +40,10 @@ var_usage=`df -Ph | sed s/%//g | awk '{ if($5 > 80) print $0;}'`
 
 
 # wwnDetails
-var_wwnDetails=`vserver=$(lscpu | grep Hypervisor | wc -l); if [ $vserver -gt 0 ]; then echo "$(hostname) is a VM"; else cat /sys/class/fc_host/host?/port_name; fi`
+var_wwnDetails=`vserver=$(lscpu | grep Hypervisor | wc -l); if [ $vserver -gt 0 ]; then echo "($var_hostname) is a VM"; else cat /sys/class/fc_host/host?/port_name; fi`
 
 # Oracle DB Instance
-var_oracleDBInstance=`if id oracle >/dev/null 2>&1; then /bin/ps -ef|grep pmon; echo "oracle user does not exist on $(hostname)"; fi`
+var_oracleDBInstance=`if id oracle >/dev/null 2>&1; then /bin/ps -ef|grep pmon; echo "oracle user does not exist on ($var_hostname)"; fi`
 
 # Package Updates Status
 var_packageUpdate=`if (( $(cat /etc/*-release | grep -w "Oracle|Red Hat|CentOS|Fedora" | wc -l) > 0 )); then yum updateinfo summary | grep 'Security|Bugfix|Enhancement'; else cat /var/lib/update-notifier/updates-available; fi`
