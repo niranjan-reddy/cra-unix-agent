@@ -144,6 +144,6 @@ echo $var_JSON_Response
 echo "           Publishing the JSON report to the API Server        "
 
 curl -X POST -H "Content-Type: application/json" \
--d $var_JSON_Response \
+-d "$var_JSON_Response" \
  http://52.191.4.233:80/api/v1/machinedetails
 
