@@ -40,22 +40,13 @@ var_usage=`df -Ph | sed s/%//g | awk '{ if($5 > 80) print $0;}'`
 
 
 # wwnDetails
-var_wwnDetails=`vserver=$(lscpu | grep Hypervisor | wc -l); if [ $vserver -gt 0 ]; then echo "($var_hostname) is a VM"; else cat /sys/class/fc_host/host?/port_name; fi`
+var_wwnDetails=`vserver=$(lscpu | grep Hypervisor | wc -l); if [ $vserver -gt 0 ]; then echo "$(hostname) is a VM"; else cat /sys/class/fc_host/host?/port_name; fi`
 
 # Oracle DB Instance
-var_oracleDBInstance=`if id oracle >/dev/null 2>&1; then /bin/ps -ef|grep pmon; echo "oracle user does not exist on ($var_hostname)"; fi`
+var_oracleDBInstance=`if id oracle >/dev/null 2>&1; then /bin/ps -ef|grep pmon; echo "oracle user does not exist on $(hostname)"; fi`
 
 # Package Updates Status
 var_packageUpdate=`if (( $(cat /etc/*-release | grep -w "Oracle|Red Hat|CentOS|Fedora" | wc -l) > 0 )); then yum updateinfo summary | grep 'Security|Bugfix|Enhancement'; else cat /var/lib/update-notifier/updates-available; fi`
-
-
-
-var_JSON_Response=""
-
-
-
-
-
 
 
 echo -e "======================================"
@@ -99,6 +90,47 @@ $var_oracleDBInstance
 $var_packageUpdate
 
 echo "Done"
-## Create a record with defined parameters
 
+###############################################################################################
+# Form the JSON Object Here
+# var_JSON_Response="${var_JSON_Response} World"
 
+var_JSON_Response='[{
+        "systemInformation": {
+                "hostname": "$var_hostname",
+                "uptime": "$var_uptime",
+                "manufacturer": "$var_manufacturer",
+                "productName": "$var_productName",
+                "version": "$var_version",
+                "serialNumber": "$var_serialNumber",
+                "machineType": "$var_machineType",
+                "operatingSystem": "$var_operatingSystem",
+                "kernel": "$var_kernel",
+                "architecture": "$var_architecture",
+                "processorName": "$var_processorName",
+                "activeUser": "$var_activeUser",
+                "systemMainIP": "$var_systemMainIp"
+        }
+},
+{
+        "memory_CPUUsage": {
+                "memoryUsage": "$var_memoryUsage",
+                "swapUsage": "$var_swapUsage",
+                "cpuUsage": "$var_cpuUsage"
+        }
+},
+{
+        "diskUsage": [{
+                        "usage": "80%"
+                },
+                {
+                        "$var_usage"
+                }
+        ]
+},
+{
+        "wwnDetails": "$var_wwnDetails"
+}
+]'
+
+echo $var_JSON_Response
