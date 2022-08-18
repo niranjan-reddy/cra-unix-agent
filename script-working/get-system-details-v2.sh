@@ -97,26 +97,26 @@ echo "Done"
 
 var_JSON_Response='[{
         "systemInformation": {
-                "hostname": "$var_hostname",
-                "uptime": "$var_uptime",
-                "manufacturer": "$var_manufacturer",
-                "productName": "$var_productName",
-                "version": "$var_version",
-                "serialNumber": "$var_serialNumber",
-                "machineType": "$var_machineType",
-                "operatingSystem": "$var_operatingSystem",
-                "kernel": "$var_kernel",
-                "architecture": "$var_architecture",
-                "processorName": "$var_processorName",
-                "activeUser": "$var_activeUser",
-                "systemMainIP": "$var_systemMainIp"
+                "hostname": "'$var_hostname'",
+                "uptime": "'$var_uptime'",
+                "manufacturer": "'$var_manufacturer'",
+                "productName": "'$var_productName'",
+                "version": "'$var_version'",
+                "serialNumber": "'$var_serialNumber'",
+                "machineType": "'$var_machineType'",
+                "operatingSystem": "'$var_operatingSystem'",
+                "kernel": "'$var_kernel'",
+                "architecture": "'$var_architecture'",
+                "processorName": "'$var_processorName'",
+                "activeUser": "'$var_activeUser'",
+                "systemMainIP": "'$var_systemMainIp'"
         }
 },
 {
         "memory_CPUUsage": {
-                "memoryUsage": "$var_memoryUsage",
-                "swapUsage": "$var_swapUsage",
-                "cpuUsage": "$var_cpuUsage"
+                "memoryUsage": "'$var_memoryUsage'",
+                "swapUsage": "'$var_swapUsage'",
+                "cpuUsage": "'$var_cpuUsage'"
         }
 },
 {
@@ -124,12 +124,12 @@ var_JSON_Response='[{
                         "usage": "80%"
                 },
                 {
-                        "$var_usage"
+                        "'$var_usage'"
                 }
         ]
 },
 {
-        "wwnDetails": "$var_wwnDetails"
+        "wwnDetails": "'$var_wwnDetails'"
 }
 ]'
 
