@@ -121,10 +121,10 @@ var_JSON_Response='[{
 },
 {
         "diskUsage": [{
-                        "usage": "80%"
+                        "usage": "is > 80%"
                 },
                 {
-                        "'$var_usage'"
+                        "usageDetails": "'$var_usage'"
                 }
         ]
 },
