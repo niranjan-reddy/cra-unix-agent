@@ -142,7 +142,7 @@ echo $var_JSON_Response
 
 echo "           Publishing the JSON report to the API Server        "
 
-curl -X POST http://52.191.4.233:80/api/v1/machinedetails -H "Content-Type: application/json" -d `$var_JSON_Response`
+curl -X POST http://52.191.4.233:80/api/v1/machinedetails -H "Content-Type: application/json" -d "$var_JSON_Response"
 
 # curl -X POST http://52.191.4.233:80/api/v1/machinedetails -H "Content-Type: application/json" -d '{ "systemInformation": { "hostname": "vm-cloud-readiness-assesor", "uptime": "31 days", "manufacturer": "Microsoft Corporation", "productName": "Virtual Machine", "version": "Hyper-V UEFI Release v4.1", "serialNumber": "0000-0007-8866-2232-1954-8664-88", "machineType": "VM", "operatingSystem": "Ubuntu 20.04.4 LTS", "kernel": "5.15.0-1014-azure", "architecture": "x86_64", "processorName": "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", "activeUser": "santoshi", "systemMainIP": "10.12.0.5 " } }, { "memory_CPUUsage": { "memoryUsage": "12.86%", "swapUsage": "", "cpuUsage": "0.73%" } }, { "diskUsage": [{ "usage": "is > 80%" }, { "usageDetails": "Filesystem Size Used Avail Use Mounted on /dev/loop1 68M 68M 0 100 /snap/lxd/22753 /dev/loop2 47M 47M 0 100 /snap/snapd/16292 /dev/loop5 62M 62M 0 100 /snap/core20/1593 /dev/loop3 62M 62M 0 100 /snap/core20/1611" } ] }, { "wwnDetails": "vm-cloud-readiness-assesor is a VM" }'  
 
