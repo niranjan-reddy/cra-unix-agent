@@ -141,6 +141,9 @@ echo $var_JSON_Response
 # curl -H "Accept: application/json" -H "Content-Type:application/x-www-form-urlencoded" -X POST --data-urlencode "custom=$var_JSON_Response" $url
 
 
-echo -e "           Publishing the JSON report to the API Server        "
+echo "           Publishing the JSON report to the API Server        "
 
-curl -d '$var_JSON_Response' -H "Content-Type: application/json" http://52.191.4.233:80/api/v1/machinedetails
+curl -X POST -H "Content-Type: application/json" \
+-d '$var_JSON_Response' \
+ http://52.191.4.233:80/api/v1/machinedetails
+
